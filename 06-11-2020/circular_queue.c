@@ -12,13 +12,11 @@ void Enque(int x){
         return;
     }
     else{
-        if(front==-1){
-            front=0;
-        }
-        else{
             rear=(rear+1)%SIZE;
-        }
-        queue[rear]=x;
+            queue[rear]=x;
+            if(front==-1){
+            front=0;
+            }
     } 
 }
 
