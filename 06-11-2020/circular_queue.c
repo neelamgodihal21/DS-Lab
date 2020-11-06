@@ -37,26 +37,34 @@ void Deque(){
 }
 
 void display(){
-   if(front==-1 && rear==-1){
+   if((front==-1) && (rear==-1)){
        printf("The queue is empty.\n");
        return;
    }
-   else{
-       printf("The queue is as follows:\n");
-       for(int i=front;i<=rear;i++){
-           printf("%d\n",queue[i]);
-       }
-   }
+   
+   if(front>rear)
+    {   
+        for(int i=front;i<SIZE;i++)
+            printf("\t%d",queue[i]);
+        for(int j=0;j<=rear;j++)
+            printf("\t%d",queue[j]);
+    }
+    else
+    {
+        printf("Contents of circular queue are:\n");
+        for(int i=front;i<=rear;i++)
+            printf("\t%d", queue[i]);
+    }
 }
 
 int main(){
     int option,num;
 
     do{
-        printf("--------CIRCULAR QUEUE--------\n");
+        printf("\n--------CIRCULAR QUEUE--------\n");
         printf("Enter your choice\n");
         printf("1.To add an element to the queue(Enqueue).\n");
-        printf("2.To remove an element to the queue(Dequeue).\n");
+        printf("2.To remove an element from the queue(Dequeue).\n");
         printf("3.To display elements of the queue.\n");
         printf("4.To exit.\n");
         scanf("%d",&option);
@@ -75,6 +83,4 @@ int main(){
     } while(option!=4);
       
     return 0;
-
-
 }
