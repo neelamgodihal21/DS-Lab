@@ -69,6 +69,27 @@ void delete(int element){
 	}
 }
 
+void delFirst(){
+	head=head->next;
+	return;
+}
+
+void delLast(){
+	struct node *temp,*del=NULL;
+	
+	temp=head;
+	while(temp->next!=NULL){
+		del=temp->next;
+		
+		while(del->next==NULL){
+			temp->next=NULL;
+			return;
+		}
+		
+		temp=temp->next;
+	}
+}
+
 void display(){
 	struct node *p;
 	p=head;
@@ -90,7 +111,7 @@ int main(){
 	int position;
 	
 	do{
-		printf("\n1.Create \n2.Add \n3.Display \n4.Delete \n5.Exit\n");
+		printf("\n1.Create \n2.Add \n3.Display \n4.Delete first element \n5.Delete the last element \n6.Delete specific element \n7.Exit\n");
 		scanf("%d",&option);
 		
 		switch(option){
@@ -103,12 +124,18 @@ int main(){
 			case 3: display();
 					break;
 					
-			case 4: printf("Enter the element you want to delete\n");
+			case 4: delFirst();
+					break;
+			
+			case 5: delLast();
+					break;
+			
+			case 6: printf("Enter the element you want to delete\n");
 					scanf("%d",&ele);
 					delete(ele);
 					break;
 		}
-	}while(option!=5);
+	}while(option!=7);
 	
 	
 }
