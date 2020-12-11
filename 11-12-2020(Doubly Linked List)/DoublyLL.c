@@ -53,7 +53,7 @@ void insert_end()
 	}
 
 }
-void insert_between()
+void insert_left()
 {
 	int listele;
 	struct node *new_node,*temp;
@@ -151,7 +151,7 @@ int main()
 			{
 				 case 1: insert_beg(); break;
 				 case 2: insert_end();break;
-				 case 3: insert_between();break;
+				 case 3: insert_left();break;
 				 case 4: del(); break;
 				 case 5: display(); break;
 				 case 6: exit(0);
